@@ -3,7 +3,11 @@
     {{ character.name }}
   </h4>
   <div>
-    <button class="btn btn-primary">Light</button>
-    <button class="btn btn-secondary">Dark</button>
+    <button class="btn btn-warning" (click)="assingLightSide('light')">
+      Light
+    </button>
+    <button class="btn btn-secondary" (click)="assingLightSide('dark')">
+      Dark
+    </button>
   </div>
 </a>

@@ -1,20 +1,35 @@
 <div>
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link" (click)="choosenSide('all')" style="cursor: pointer"
+      <a
+        class="nav-link"
+        [ngClass]="{ active: choosenList === 'all' }"
+        (click)="choosenSide('all')"
+        style="cursor: pointer"
         >All</a
       >
     </li>
     <li class="nav-item">
-      <a class="nav-link" (click)="choosenSide('light')" style="cursor: pointer"
+      <a
+        class="nav-link"
+        [ngClass]="{ active: choosenList === 'light' }"
+        (click)="choosenSide('light')"
+        style="cursor: pointer"
         >Light</a
       >
     </li>
     <li class="nav-item">
-      <a class="nav-link" (click)="choosenSide('dark')" style="cursor: pointer"
+      <a
+        class="nav-link"
+        [ngClass]="{ active: choosenList === 'dark' }"
+        (click)="choosenSide('dark')"
+        style="cursor: pointer"
         >Dark</a
       >
     </li>
   </ul>
-  <app-list [characters]="getCharacters()"></app-list>
+  <app-list
+    [characters]="getCharacters()"
+    (changeSide)="assignNewSide($event)"
+  ></app-list>
 </div>
