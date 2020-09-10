@@ -1,0 +1,14 @@
+<nav class="nav nav-pills nav-justified">
+  <!-- 2nd way of property binding -->
+  <a class="nav-link" routerLink="/characters" routerLinkActive="active"
+    >Star wars character</a
+  >
+  <!-- [routerLinkActiveOptions]="{ exact: true }" -->
+  <!-- 1ST WAY of property binding -->
+  <a
+    class="nav-link"
+    [routerLink]="'/new-character'"
+    [routerLinkActive]="'active'"
+    >New characters</a
+  >
+</nav>

@@ -4,5 +4,5 @@
     *ngFor="let char of characters"
     [character]="char"
     (changeSide)="onChangeSide($event)"
-  ></app-item>
+  >{{char.name}}</app-item>
 </div>

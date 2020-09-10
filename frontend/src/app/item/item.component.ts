@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { StarWarsService } from '../star-wars.services';
 
 @Component({
   selector: 'app-item',
@@ -7,17 +8,17 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
   @Input() character;
-  @Output() changeSide = new EventEmitter<{name: string, side: string}>();
+  swService: StarWarsService;
 
-  constructor() { }
+  constructor(swService: StarWarsService) {
+    this.swService = swService;
+  }
 
   ngOnInit(): void {
   }
 
-  assingLightSide(side){
-    alert(1);
-    console.log('characterInfo1:', side);
-    this.changeSide.emit({name: this.character.name, side: side});
+  assingSide(side){
+    console.log('side',side);
+    this.swService.assignNewSide({name: this.character.name,side});
   }
-
 }
