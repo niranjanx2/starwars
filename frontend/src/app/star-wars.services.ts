@@ -1,5 +1,6 @@
 import { LogService } from './log.service';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class StarWarsService {
@@ -9,6 +10,7 @@ export class StarWarsService {
   ];
 
   private logService: LogService;
+  charactersChanges = new Subject<void>();
 
   constructor(logService: LogService) {
     this.logService = logService;
@@ -31,6 +33,7 @@ export class StarWarsService {
     });
 
     this.characters[pos].side = newSide.side;
+    this.charactersChanges.next();
 
     this.logService.addLogs(
       'changing side of: ' + newSide.name + ' , to new side: ' + newSide.side
